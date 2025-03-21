@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Set the language as English -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Makes sure the page matches the screen of the device -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Birthday List{% endblock %}</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 20px;
+                background-color: #2d3e48;
+                font-size: 20px;
+            }
+            .container {
+                max-width: 1000px;
+                margin: auto;
+                background: lightslategray;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            nav {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            nav a {
+                text-decoration: none;
+                margin: 0 10px;
+                color: #310a75;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a href="{% url 'birthday_list' %}">Home</a>
+                <a href="{% url 'add_birthday' %}">Add Birthday</a>
+            </nav>
+
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

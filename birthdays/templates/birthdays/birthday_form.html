@@ -1,0 +1,22 @@
+{% extends 'birthdays/base.html' %}
+
+{% block title %}Add/Edit Birthday{% endblock %}
+
+{% block content %}
+<div style="text-align:center;">
+    <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Birthday</h2>
+
+    <form method="POST" style="display: inline-block; text-align: center;">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div style="text-align: center; margin-top: 10px;">
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'birthday_list' %}">Back to List</a>
+    </div>
+</div>
+{% endblock %}

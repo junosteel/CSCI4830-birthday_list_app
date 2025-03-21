@@ -1,0 +1,29 @@
+{% extends 'birthdays/base.html' %}
+
+{% block title %}Birthday List{% endblock %}
+
+{% block content %}
+<div style="text-align:center;">
+    <h2>Upcoming Birthdays</h2>
+
+    <form method="GET" style="text-align: center;">
+        <label for="priority">Filter by Priority:</label>
+        <select name="priority" id="priority">
+            <option value="" {% if request.GET.priority == "" %}selected{% endif %}>All</option>
+            <option value="Acquaintance" {% if request.GET.priority == "Acquaintance" %}selected{% endif %}>Acquaintance</option>
+            <option value="Friend" {% if request.GET.priority == "Friend" %}selected{% endif %}>Friend</option>
+            <option value="Family" {% if request.GET.priority == "Family" %}selected{% endif %}>Family</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <ul style="list-style-type: none; padding: 0;">
+        {% for birthday in birthdays %}
+        <li style="margin: 10px 0;">
+            {{ birthday.name }} - {{ birthday.birth_date }} - {{ birthday.priority }}
+            <a href="{% url 'edit_birthday' birthday.id %}">Edit</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

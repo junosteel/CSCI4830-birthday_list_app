@@ -1,0 +1,15 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files
+db.sqlite3
+
+# Other IDE or system-specific files
+.vscode/
+.idea/
+
+# Static files
+static/
